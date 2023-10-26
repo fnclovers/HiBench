@@ -22,11 +22,15 @@
            <value>1</value>
          </property>
          <property>
+           <name>hadoop.tmp.dir</name>
+           <value>/mnt/run/hdfs/tmp</value>
+         </property>
+         <property>
            <name>dfs.namenode.name.dir</name>
-           <value>/tmp/run/hdfs/namenode</value>
+           <value>/mnt/run/hdfs/namenode</value>
          </property>
          <property>
            <name>dfs.datanode.data.dir</name>
-           <value>/tmp/run/hdfs/datanode</value>
+           <value>/mnt/run/hdfs/datanode</value>
          </property>
 </configuration>

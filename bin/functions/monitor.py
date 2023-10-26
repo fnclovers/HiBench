@@ -165,10 +165,12 @@ while True:
         s = script.replace('"', r'\"').replace("\n", r"\n")
         container=[]
 #        log("ssh client to:", self.host)
-        with self.ssh_client(self.host, "python -u -c \"{script}\"".format(script=s)) as f:
+        with self.ssh_client(self.host, "python2 -u -c \"{script}\"".format(script=s)) as f:
 #            log("ssh client %s connected" % self.host)
             try:
                 port_line = f.readline()
+                print "host:", self.host, "got port,", port_line
+                self.host = "127.0.0.1"
 #                log("host:", self.host, "got port,", port_line)
                 port = int(port_line.rstrip())
                 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -845,6 +847,7 @@ if __name__=="__main__":
         os.close(2)
 #        log("child process start")
         signal.signal(signal.SIGTERM, sig_term_handler)
+        sys.excepthook = sig_term_handler
         start_monitor(log_path, nodes_to_monitor)
         while  os.path.exists("/proc/%s" % parent_pid):
             sleep(1)

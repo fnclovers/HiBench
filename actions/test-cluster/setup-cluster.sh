@@ -22,9 +22,9 @@ source $SCRIPT_DIR/load-spark-envs.sh
 # download spark & hadoop bins
 [ -d ~/opt ] || mkdir ~/opt
 cd ~/opt
-[ -f spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION.tgz ] || wget --no-verbose https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION.tgz
+[ -f spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION.tgz ] || wget https://archive.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION.tgz
 [ -d spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION ] || tar -xzf spark-$SPARK_VERSION-bin-$SPARK_HADOOP_VERSION.tgz
-[ -f hadoop-$HADOOP_VERSION.tar.gz ] || wget --no-verbose https://archive.apache.org/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
+[ -f hadoop-$HADOOP_VERSION.tar.gz ] || wget https://archive.apache.org/dist/hadoop/core/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 [ -d hadoop-$HADOOP_VERSION ] || tar -xzf hadoop-$HADOOP_VERSION.tar.gz
 
 cd $SCRIPT_DIR
@@ -53,8 +53,9 @@ echo $HOST_IP > $HADOOP_HOME/etc/hadoop/slaves
 echo $HOST_IP > $SPARK_HOME/conf/slaves
 
 # create directories
-mkdir -p /tmp/run/hdfs/namenode
-mkdir -p /tmp/run/hdfs/datanode
+rm -rf /mnt/run/hdfs
+mkdir -p /mnt/run/hdfs/namenode
+mkdir -p /mnt/run/hdfs/datanode
 
 # hdfs format
 $HADOOP_HOME/bin/hdfs namenode -format
