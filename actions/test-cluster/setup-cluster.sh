@@ -59,6 +59,7 @@ mkdir -p /mnt/run/hdfs/datanode
 mkdir -p /mnt/run/hdfs/tmp
 mkdir -p /mnt/run/hadoop/tmp
 mkdir -p /mnt/run/yarn/local
+mkdir -p /mnt/run/spark
 
 
 # hdfs format
