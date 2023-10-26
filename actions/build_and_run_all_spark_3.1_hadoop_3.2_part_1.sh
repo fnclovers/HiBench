@@ -2,7 +2,6 @@
 
 # exit when any command fails
 set -e
-/root/opt/hadoop-3.2.1/sbin/stop-all.sh
 
 export HADOOP_VERSION=3.2.1
 export SPARK_VERSION=3.1.1
@@ -17,6 +16,7 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
+# /root/opt/hadoop-3.2.1/sbin/stop-all.sh
 # mvn build
 # mvn clean package -q -Dmaven.javadoc.skip=true -Dspark=3.1 -Dscala=2.12
 

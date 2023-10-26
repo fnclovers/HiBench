@@ -13,7 +13,11 @@
   limitations under the License. See accompanying LICENSE file.
 -->
 <configuration>
-
+    <property>
+        <name>yarn.nodemanager.local-dirs</name>
+        <value>/mnt/run/yarn/local</value>
+        <description>List of directories to store localized files in.</description>
+    </property>
     <!-- Site specific YARN configuration properties --> 
     <property>
 		<name>yarn.nodemanager.aux-services</name>

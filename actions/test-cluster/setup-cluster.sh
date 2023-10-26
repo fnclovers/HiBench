@@ -56,6 +56,10 @@ echo $HOST_IP > $SPARK_HOME/conf/slaves
 rm -rf /mnt/run/hdfs
 mkdir -p /mnt/run/hdfs/namenode
 mkdir -p /mnt/run/hdfs/datanode
+mkdir -p /mnt/run/hdfs/tmp
+mkdir -p /mnt/run/hadoop/tmp
+mkdir -p /mnt/run/yarn/local
+
 
 # hdfs format
 $HADOOP_HOME/bin/hdfs namenode -format
