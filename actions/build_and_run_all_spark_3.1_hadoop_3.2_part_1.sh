@@ -2,6 +2,7 @@
 
 # exit when any command fails
 set -e
+/root/opt/hadoop-3.2.1/sbin/stop-all.sh
 
 export HADOOP_VERSION=3.2.1
 export SPARK_VERSION=3.1.1
